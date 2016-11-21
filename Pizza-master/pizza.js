@@ -9,27 +9,37 @@ class pizza{
 
   //type instance functions below
   this.sizeCost = function(){
-    if(s = "Small";){
-      price + 7.99;
+    if(this.size == "Small";){
+      return 7.99;
     }
-    else if(s = "Medium";){
-      price + 9.99;
+    else if(this.size == "Medium";){
+      return 9.99;
     }
-    else if(s = "Large";){
-      price + 12.99;
+    else if(this.size == "Large";){
+      return 12.99;
     }
-    else(s = "Extra-Large"){
-      price + 15.99;
+    else(this.size == "Extra-Large"){
+      return 15.99;
     }
   }
 
   this.toppingCost = function(top){
-    if(top = "Meat";){
-      
+    if(top == "Meat";){
+      return(this.meatTopping.length * .99);
+    }
+    if(top == "veggie";){
+      return(this.veggieTopping.length * .50);
     }
   }
 
   //type class functions below
+  this.price = function(){
+    return (this.sizeCost() + this.toppingCost("Meat","Veggie"));
+  }
 
+  static promotionalDeal(pizza,percent){
+    let percent = 1 - (percent/100);
+    return this.price()*percent;
+  }
 
 }
